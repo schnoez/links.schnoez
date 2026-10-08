@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>schnoez</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0a0a0a">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            padding: 48px 16px 60px;
+        }
+        .container {
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 18px;
+            border: 1px solid #222;
+        }
+
+        .name {
+            font-size: 21px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 3px;
+        }
+
+        .username {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 36px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            background: #161616;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 11px;
+            border: 1px solid #2a2a2a;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .btn:hover {
+            background: #1f1f1f;
+            border-color: #3a3a3a;
+        }
+
+        /* VIP etwas hervorgehoben, aber nicht schreiend */
+        .btn.vip {
+            background: #1a1a1a;
+            border-color: #333;
+            font-weight: 600;
+        }
+        .btn.vip:hover {
+            background: #242424;
+            border-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Wichtig: hero.jpg muss auch auf der Subdomain liegen -->
+        <img class="avatar" src="hero.jpg" alt="schnoez">
+
+        <div class="name">schnoez</div>
+        <div class="username">@schnoez</div>
+
+        <div class="links">
+            <a class="btn vip" href="https://onlyfans.com/schnoez">
+                VIP
+            </a>
+            <a class="btn" href="https://www.instagram.com/schnoez">
+                Instagram
+            </a>
+            <a class="btn" href="https://x.com/schnoezX">
+                X / Twitter
+            </a>
+            <a class="btn" href="https://www.tiktok.com/@schnoezz">
+                TikTok
+            </a>
+            <a class="btn" href="https://bsky.app/profile/schnoez.bsky.social">
+                Bluesky
+            </a>
+        </div>
+    </div>
+</body>
+</html>
