@@ -87,45 +87,6 @@
             0%, 100% { border-color: rgba(255, 255, 255, 0.35); }
             50% { border-color: rgba(255, 255, 255, 1); }
         }
-        .gate {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.72);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            z-index: 20;
-        }
-        .gate[hidden] { display: none; }
-        .gate-box {
-            width: 100%;
-            max-width: 320px;
-            background: #141414;
-            border: 1px solid #2a2a2a;
-            border-radius: 16px;
-            padding: 28px 22px;
-            text-align: center;
-        }
-        .gate-box p {
-            font-size: 15px;
-            margin-bottom: 22px;
-        }
-        .gate-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .gate-actions button {
-            border: 0;
-            border-radius: 999px;
-            padding: 14px 16px;
-            font: inherit;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        #gate-yes { background: #fff; color: #111; }
-        #gate-no { background: transparent; color: #aaa; border: 1px solid #333; }
         @media (prefers-reduced-motion: reduce) {
             .btn.vip { animation: none; }
         }
@@ -144,35 +105,12 @@
             <a class="btn" href="https://bsky.app/profile/schnoez.bsky.social" rel="noreferrer">Bluesky</a>
         </div>
     </div>
-    <div class="gate" id="gate" hidden>
-        <div class="gate-box">
-            <p>This page is for adults only.</p>
-            <div class="gate-actions">
-                <button type="button" id="gate-yes">I am 18+</button>
-                <button type="button" id="gate-no">Go back</button>
-            </div>
-        </div>
-    </div>
     <script>
         window.addEventListener("pageshow", function (event) {
             if (event.persisted) location.reload();
         });
-
-        const gate = document.getElementById("gate");
-        const vipBtn = document.getElementById("vip-btn");
-
-        vipBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            gate.hidden = false;
-        });
-
-        document.getElementById("gate-yes").addEventListener("click", function () {
-            vipBtn.textContent = "Loading...";
-            window.location.href = vipBtn.href;
-        });
-
-        document.getElementById("gate-no").addEventListener("click", function () {
-            gate.hidden = true;
+        document.getElementById("vip-btn").addEventListener("click", function () {
+            this.textContent = "Loading...";
         });
     </script>
 </body>
