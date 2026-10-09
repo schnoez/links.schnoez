@@ -69,7 +69,7 @@
             font-weight: 500;
             border-radius: 11px;
             border: 1px solid #2a2a2a;
-            transition: background 0.2s ease, border-color 0.2s ease;
+            transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
             cursor: pointer;
         }
         .btn:hover {
@@ -90,13 +90,12 @@
 </head>
 <body>
     <div class="container">
-        <img class="avatar" src="hero.jpg" alt="schnoez">
+        <img class="avatar" src="hintergrund_schnoez_1.jpg" alt="schnoez">
 
         <div class="name">schnoez</div>
         <div class="username">@schnoez</div>
 
         <div class="links">
-            <!-- VIP Button – wird per JavaScript weitergeleitet -->
             <a class="btn vip" href="#" id="vip-btn">
                 VIP
             </a>
@@ -119,9 +118,13 @@
     <script>
         document.getElementById('vip-btn').addEventListener('click', function(e) {
             e.preventDefault();
+            this.textContent = "Loading...";
+            this.style.opacity = "0.7";
+            this.style.pointerEvents = "none";
+
             setTimeout(function() {
                 window.location.href = "https://onlyfans.com/schnoez";
-            }, 350);
+            }, 400);
         });
     </script>
 </body>
