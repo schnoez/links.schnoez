@@ -10,11 +10,7 @@
     <link rel="apple-touch-icon" href="favicon.png">
     <meta name="referrer" content="no-referrer">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body {
             height: 100%;
             background: #0a0a0a;
@@ -24,14 +20,13 @@
         body {
             display: flex;
             justify-content: center;
-            padding: 48px 16px 60px;
+            padding: 48px 16px max(60px, calc(36px + env(safe-area-inset-bottom)));
         }
         .container {
             width: 100%;
             max-width: 360px;
             text-align: center;
         }
-
         .avatar {
             width: 92px;
             height: 92px;
@@ -40,26 +35,22 @@
             margin-bottom: 18px;
             border: 1px solid #222;
         }
-
         .name {
             font-size: 21px;
             font-weight: 500;
             letter-spacing: 0.02em;
             margin-bottom: 3px;
         }
-
         .username {
             font-size: 13px;
             color: #777;
             margin-bottom: 36px;
         }
-
         .links {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .btn {
             display: block;
             width: 100%;
@@ -71,62 +62,55 @@
             font-weight: 500;
             border-radius: 11px;
             border: 1px solid #2a2a2a;
-            transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+            transition: background 0.2s ease, border-color 0.2s ease;
             cursor: pointer;
+            user-select: none;
         }
         .btn:hover {
             background: #1f1f1f;
             border-color: #3a3a3a;
         }
-
         .btn.vip {
-            background: #1a1a1a;
-            border-color: #333;
+            background: #141414;
+            border-color: rgba(255,255,255,0.4);
             font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-size: 13px;
+            animation: edge 3.6s ease-in-out 1.2s infinite;
         }
         .btn.vip:hover {
-            background: #242424;
-            border-color: #444;
+            background: #1c1c1c;
+            border-color: #fff;
+        }
+        @keyframes edge {
+            0%, 100% { border-color: rgba(255, 255, 255, 0.35); }
+            50% { border-color: rgba(255, 255, 255, 1); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .btn.vip { animation: none; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img class="avatar" src="hintergrund_schnoez_1_small.jpg" alt="schnoez">
-
         <div class="name">schnoez</div>
         <div class="username">@schnoez</div>
-
         <div class="links">
-            <a class="btn vip" href="#" id="vip-btn">
-                VIP
-            </a>
-
-            <a class="btn" href="https://www.instagram.com/schnoez">
-                Instagram
-            </a>
-            <a class="btn" href="https://x.com/schnoezX">
-                X / Twitter
-            </a>
-            <a class="btn" href="https://www.tiktok.com/@schnoezz">
-                TikTok
-            </a>
-            <a class="btn" href="https://bsky.app/profile/schnoez.bsky.social">
-                Bluesky
-            </a>
+            <a class="btn vip" href="https://onlyfans.com/schnoez" id="vip-btn" rel="noreferrer">ENTER</a>
+            <a class="btn" href="https://www.instagram.com/schnoez" rel="noreferrer">Instagram</a>
+            <a class="btn" href="https://x.com/schnoezX" rel="noreferrer">X / Twitter</a>
+            <a class="btn" href="https://www.tiktok.com/@schnoezz" rel="noreferrer">TikTok</a>
+            <a class="btn" href="https://bsky.app/profile/schnoez.bsky.social" rel="noreferrer">Bluesky</a>
         </div>
     </div>
-
     <script>
-        document.getElementById('vip-btn').addEventListener('click', function(e) {
-            e.preventDefault();
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) location.reload();
+        });
+        document.getElementById("vip-btn").addEventListener("click", function () {
             this.textContent = "Loading...";
-            this.style.opacity = "0.7";
-            this.style.pointerEvents = "none";
-
-            setTimeout(function() {
-                window.location.href = "https://onlyfans.com/schnoez";
-            }, 400);
         });
     </script>
 </body>
