@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>schnoez</title>
     <meta name="robots" content="noindex, nofollow">
@@ -70,13 +70,13 @@
             border-radius: 11px;
             border: 1px solid #2a2a2a;
             transition: background 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
         }
         .btn:hover {
             background: #1f1f1f;
             border-color: #3a3a3a;
         }
 
-        /* VIP etwas hervorgehoben, aber nicht schreiend */
         .btn.vip {
             background: #1a1a1a;
             border-color: #333;
@@ -90,16 +90,17 @@
 </head>
 <body>
     <div class="container">
-        <!-- Wichtig: hero.jpg muss auch auf der Subdomain liegen -->
         <img class="avatar" src="hero.jpg" alt="schnoez">
 
         <div class="name">schnoez</div>
         <div class="username">@schnoez</div>
 
         <div class="links">
-            <a class="btn vip" href="https://onlyfans.com/schnoez">
+            <!-- VIP Button – wird per JavaScript weitergeleitet -->
+            <a class="btn vip" href="#" id="vip-btn">
                 VIP
             </a>
+
             <a class="btn" href="https://www.instagram.com/schnoez">
                 Instagram
             </a>
@@ -114,5 +115,14 @@
             </a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('vip-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            setTimeout(function() {
+                window.location.href = "https://onlyfans.com/schnoez";
+            }, 350);
+        });
+    </script>
 </body>
 </html>
